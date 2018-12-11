@@ -41,7 +41,7 @@ func DayThreePartTwo(input string) int {
 
 	for _, line := range grid {
 		for _, cell := range line {
-			if len(cell) == 1 && hasOverlap(grid, cell[0]) == false {
+			if len(cell) == 1 && dayThreeHasOverlap(grid, cell[0]) == false {
 				return cell[0].id
 			}
 		}
@@ -50,7 +50,7 @@ func DayThreePartTwo(input string) int {
 	return 0
 }
 
-func hasOverlap(g dayThreeGrid, c dayThreeClaim) bool {
+func dayThreeHasOverlap(g dayThreeGrid, c dayThreeClaim) bool {
 	for i := c.x; i < c.x+c.w; i++ {
 		for j := c.y; j < c.y+c.h; j++ {
 			if len(g[i][j]) > 1 {
